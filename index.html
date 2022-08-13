@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Test</title>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h1 id="message"></h1>
+        </div>
+        <div id="imgContainer">
+    </div>
+    <script>
+        let url="https://v2.jokeapi.dev/joke/Any?safe-mode"
+        fetch(url)
+        .then(resp=>resp.json())
+        .then(data=>{
+            console.log(data)
+            document.getElementById("message").innerHTML = "Success";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("container").style.backgroundColor = "green";
+            const node = document.createElement("img");
+            document.getElementById("imgContainer").appendChild(node).src="https://http.cat/200";
+        })
+        .catch(err=>{
+            console.log(err)
+            document.getElementById("message").innerHTML = "Failed";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("container").style.backgroundColor = "red";
+            const node = document.createElement("img");
+            document.getElementById("imgContainer").appendChild(node).src="https://http.cat/401";
+        })
+    </script>
+</body>
+</html>
